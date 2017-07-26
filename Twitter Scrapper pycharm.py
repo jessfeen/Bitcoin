@@ -37,7 +37,7 @@ class listener(StreamListener):
                 "INSERT INTO TwitterFeed2 ( User_Id , tweet , User_Location ,Created_at, neg, neu, pos, compound,datetime, date, time ) VALUES (?,?,?,?, ? , ? ,?,?,?,?,?)", #Make sure table with right values and name is created in SQL here
                 username, tweet, userlocation, created_by, neg, neu, pos, compound, datetime, date, time)
             conn.commit()
-            print((username, tweet))
+            #print((username, tweet))
             return True
         else:
             return True

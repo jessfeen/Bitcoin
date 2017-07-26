@@ -36,10 +36,10 @@ class Timer(threading.Thread):
                 datetime = dt.now().strftime('%Y''-''%m''-''%d''  ''%X')
                 date = dt.now().strftime('%Y''-''%m''-''%d')
                 time = dt.now().strftime('%X')
-                print(BTC)
-                print(USD)
-                print(EUR)
-                print(GBP)
+                #print(BTC)
+                #print(USD)
+                #print(EUR)
+                #print(GBP)
                 curr.execute(
                     "INSERT INTO BitcoinRate2 ( BTC , USD , EUR , GBP, datetime, date, time) VALUES (?, ?, ?, ?, ?, ?, ?)",
                     BTC, USD, EUR, GBP, datetime, date, time)
