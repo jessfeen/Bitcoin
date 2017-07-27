@@ -51,7 +51,7 @@ class listener(StreamListener):
             return True
     def on_error(self, status):
         print(status)
-        msg = "Test!"
+        msg = "Eth Down!"
         server.sendmail("twitterbitcoinscraper@gmail.com", "conorkennedy999@gmail.com", msg)
         server.quit()
 
