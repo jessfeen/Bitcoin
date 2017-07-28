@@ -4,6 +4,13 @@ import pyodbc
 from tweepy.streaming import StreamListener
 from tweepy import Stream
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
+import smtplib
+
+server = smtplib.SMTP('smtp.gmail.com', 587)
+server.starttls()
+server.login("twitterbitcoinscraper@gmail.com", "rubixkubrick")
+
+
 apikey = '3crXZR1XLBQ25WXr1bqsVlyoj'
 apisecret = 'qX5Aly2RE8YAnjViRcO9yz142jK3PYl3YJE33jhlLnzj48HQVr'
 acesstoken = '887695665874251776-Qge8k2QQwOI4g0E76CRgWDAw2cAlEUX'
@@ -40,9 +47,11 @@ class listener(StreamListener):
             #print((username, tweet))
             return True
         else:
+            print(status)
+            msg = "Twitter BTC Down!"
+            server.sendmail("twitterbitcoinscraper@gmail.com", "conorkennedy999@gmail.com", msg)
+            server.quit()
             return True
-    def on_error(self, status):
-        print(status)
 
 twitterStream = Stream(auth, listener())
 twitterStream.filter(track=["Bitcoin"])

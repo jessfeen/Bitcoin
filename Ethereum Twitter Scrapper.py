@@ -48,12 +48,11 @@ class listener(StreamListener):
             #print((username, tweet))
             return True
         else:
+            print(status)
+            msg = "Eth Down!"
+            server.sendmail("twitterbitcoinscraper@gmail.com", "conorkennedy999@gmail.com", msg)
+            server.quit()
             return True
-    def on_error(self, status):
-        print(status)
-        msg = "Eth Down!"
-        server.sendmail("twitterbitcoinscraper@gmail.com", "conorkennedy999@gmail.com", msg)
-        server.quit()
 
 
 twitterStream = Stream(auth, listener())
